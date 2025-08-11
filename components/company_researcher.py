@@ -55,6 +55,10 @@ class CompanyResearcher:
         """
         info = {}
         
+        if GoogleSearch is None:
+            print("SerpAPI GoogleSearch not available. Falling back to web scraping.")
+            return info
+        
         try:
             # General company search
             search = GoogleSearch({
@@ -222,7 +226,7 @@ class CompanyResearcher:
         """
         Try to find company LinkedIn page information
         """
-        if not self.serpapi_key:
+        if not self.serpapi_key or GoogleSearch is None:
             return None
         
         try:
@@ -247,7 +251,7 @@ class CompanyResearcher:
         """
         Research current trends in the company's industry
         """
-        if not self.serpapi_key:
+        if not self.serpapi_key or GoogleSearch is None:
             return f"Manual research recommended for {industry} industry trends."
         
         try:
