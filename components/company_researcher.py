@@ -1,8 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
-from serpapi import GoogleSearch
 from typing import Dict, List, Optional
 import time
+
+# Try to import GoogleSearch, handle if not available
+try:
+    from serpapi.google_search import GoogleSearch
+except ImportError:
+    try:
+        from serpapi import GoogleSearch
+    except ImportError:
+        GoogleSearch = None
 
 class CompanyResearcher:
     def __init__(self, serpapi_key: Optional[str] = None):
