@@ -8,7 +8,6 @@ python-docx==1.1.0
 beautifulsoup4==4.12.2
 requests==2.31.0
 airtable-python-wrapper==0.15.3
-smtplib-ssl==0.0.1
 email-validator==2.1.0
 pandas==2.1.4
 numpy==1.24.3
